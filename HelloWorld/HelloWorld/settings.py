@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
    'django.contrib.staticfiles',
     'books',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -46,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -90,15 +91,16 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    #以下是密码长度，弱密码检测，密码位数校验
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -120,3 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#send email 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.qq.com' #SMTP服务器
+EMAIL_PORT = 465 #SMTP端口
+EMAIL_HOST_USER = '489662100@qq.com' #用该邮箱发邮件，邮箱必须有效
+EMAIL_HOST_PASSWORD = 'abc123e'  #邮箱密码，必须正确
+EMAIL_USE_TLS = True           #与SMTP服务器通信时，是否启动TLS连接（安全连接），默认为false

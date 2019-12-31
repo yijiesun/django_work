@@ -12,7 +12,7 @@ class BookAdmin(admin.ModelAdmin):
     ordering = ('-publication_date',)#出版日期逆序排序
     fields = ('title', 'authors', 'publisher', 'publication_date')#编辑页面中可编辑栏目
     filter_horizontal = ('authors',)#好用的多选框
-    
+    raw_id_fields = ('publisher',)
 admin.site.register(Publisher)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Book,BookAdmin)

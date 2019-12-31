@@ -4,6 +4,9 @@
     {% block title %}The current time{% endblock %}
     
     {% block content %}
+    <p>Welcome to the page at {{ page_path }}</p>
+    <p>Your browser is  {{ agent_path }}</p>
+    <p>Your IP is  {{ ip_address }}</p>
     <p>It is now {{ current_date }}.</p>
     {% endblock %}
 </html>
